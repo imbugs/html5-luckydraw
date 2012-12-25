@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lucky!</title>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <a href="?all">所有人</a>
+      <a href="?tester">测试</a>
+      <a href="?apper">应用</a>
+      <a href="?member">会员</a>
+      <a href="?wder">前端</a>
+    </nav>
+    <button id="go" data-text-start="按空格开始" data-text-stop="按空格停止" data-action="start"></button>
+    <div id="container">
+      <ul id="balls">
+      </ul>
+      <ul id="lucky-balls">
+      </ul>
+    </div>
+
+    <script src="sea.js"></script>
+    <script>
+      var query = location.search.slice(1) || 'all';
+      seajs.use(['./lucky', './data-' + query], function(Lucky, data) {
+        Lucky.init(data)
+      })
+    </script>
+  </body>
+</html>
